@@ -4,6 +4,8 @@ import AddCategoryView from "@/views/Category/AddCategoryView";
 import CategoryView from "@/views/Category/CategoryView";
 import EditCategoryView from "@/views/Category/EditCategoryView";
 
+import AddProductView from "@/views/Product/AddProductView";
+
 const routes = [
   {
     path: '/',
@@ -24,6 +26,11 @@ const routes = [
     path: '/admin/category/:id',
     name: "EditCategory",
     component: EditCategoryView
+  },
+  {
+    path: '/admin/product/add',
+    name: "AddProduct",
+    component: AddProductView
   }
 ]
 
