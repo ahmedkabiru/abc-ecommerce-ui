@@ -5,11 +5,15 @@ import CategoryView from "@/views/Category/CategoryView";
 import EditCategoryView from "@/views/Category/EditCategoryView";
 
 import AddProductView from "@/views/Product/AddProductView";
-
+import ProductView from "@/views/Product/ProductView";
+import EditProductView from "@/views/Product/EditProductView";
+import showDetailsView from "@/views/Product/ShowDetailsView";
+import SignUp from "@/views/SignUp";
+import SignIn from "@/views/SignIn";
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
@@ -31,7 +35,31 @@ const routes = [
     path: '/admin/product/add',
     name: "AddProduct",
     component: AddProductView
-  }
+  },
+  {
+    path: '/admin/product',
+    name: "AdminProduct",
+    component: ProductView
+  },
+  {
+    path: '/admin/product/:id',
+    name: "EditProduct",
+    component: EditProductView
+  },
+  {
+    path: '/product/show/:id',
+    name: "ShowDetails",
+    component: showDetailsView
+  }, {
+    path: '/signup',
+    name: 'Signup',
+    component: SignUp
+  },
+  {
+    path: '/signin',
+    name: 'Signin',
+    component: SignIn
+  },
 ]
 
 const router = createRouter({

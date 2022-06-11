@@ -76,7 +76,7 @@ export default {
   },
   mounted() {
     this.id = this.$route.params.id;
-    this.category = this.categories.filter(category => category.id === this.id)[0];
+    this.category = this.categories.filter(category => category.id == this.id)[0];
     this.categoryName = this.category.categoryName;
     this.description = this.category.description;
     this.imageUrl  = this.category.imageUrl;

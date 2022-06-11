@@ -26,10 +26,8 @@
 <script>
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 const  axios = require("axios")
 export  default {
-
   data(){
     return {
       baseURL : "http://localhost:8080/",

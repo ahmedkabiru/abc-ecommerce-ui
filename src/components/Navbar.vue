@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!--    Logo-->
-    <router-link class="navbar-brand" :to="{name : 'home'}">
+    <router-link class="navbar-brand" :to="{name : 'Home'}">
       <img id="logo" src="../assets/icon.png" />
     </router-link>
 
@@ -25,16 +25,63 @@
           </div>
         </div>
       </form>
-      <div>
-        <router-link style="color: white" :to="{name : 'AdminCategory'}">
-          Category
-        </router-link>
-      </div>
+<!--      <div>-->
+<!--        <router-link style="color: white" :to="{name : 'AdminCategory'}">-->
+<!--          Category-->
+<!--        </router-link>-->
+<!--        <router-link style="color: white" :to="{name : 'AdminProduct'}">-->
+<!--          Products-->
+<!--        </router-link>-->
+<!--      </div>-->
+<!--    </div>-->
+      <!--      DropDowns-->
+      <ul class="navbar-nav ml-auto">
+        <!--      Admin drop down-->
+        <li class="nav-item dropdown">
+          <a
+              class="nav-link text-light dropdown-toggle"
+              href="#"
+              id="navbarDropdownAdmin"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+          >
+            Admin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+            <router-link class="dropdown-item" :to="{ name: 'AdminCategory' }">Category</router-link>
+            <router-link class="dropdown-item" :to="{ name: 'AdminProduct' }">Products</router-link>
+          </div>
+        </li>
+
+        <!--      Account drop down-->
+        <li class="nav-item dropdown">
+          <a
+              class="nav-link text-light dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+          >
+            Accounts
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <router-link class="dropdown-item" v-if="!token" :to="{ name: 'Signin' }">Log In</router-link>
+            <router-link class="dropdown-item" v-if="!token" :to="{ name: 'Signup' }">Sign Up</router-link>
+            <a class="dropdown-item" v-if="token" href="#" @click="signout">Sign Out</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </nav>
 </template>
 
 <script>
+import swal from "sweetalert";
+
 export default {
   name: "NavBar",
   data() {
@@ -43,7 +90,21 @@ export default {
     }
   },
   methods: {
+     signout(){
+       localStorage.removeItem('token')
+       this.token = null;
+       //2. redirect to home page
+       this.$router.push({name:'Home'});
+       swal({
+         text: "Logged you out. Visit Again",
+         icon: "success",
+         closeOnClickOutside: false,
+       });
+     }
   },
+  mounted() {
+    this.token = localStorage.getItem('token');
+  }
 }
 </script>
 
