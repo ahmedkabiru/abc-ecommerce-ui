@@ -22,7 +22,7 @@ import CategoryBox from "@/components/Category/CategoryBox";
 const axios = require("axios")
 
 export default {
-  name: "ViewCategory",
+  name: "CategoryView",
   components: {CategoryBox},
   data(){
     return {
