@@ -8,10 +8,12 @@ import AddProductView from "@/views/Product/AddProductView";
 import ProductView from "@/views/Product/ProductView";
 import EditProductView from "@/views/Product/EditProductView";
 import showDetailsView from "@/views/Product/ShowDetailsView";
+import SignUp from "@/views/SignUp";
+import SignIn from "@/views/SignIn";
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
@@ -48,7 +50,16 @@ const routes = [
     path: '/product/show/:id',
     name: "ShowDetails",
     component: showDetailsView
-  }
+  }, {
+    path: '/signup',
+    name: 'Signup',
+    component: SignUp
+  },
+  {
+    path: '/signin',
+    name: 'Signin',
+    component: SignIn
+  },
 ]
 
 const router = createRouter({
