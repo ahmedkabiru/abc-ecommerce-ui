@@ -48,7 +48,7 @@ export default {
       const  newCategory = {
         categoryName: this.categoryName,
         description : this.description,
-        imageURL: this.imageURL
+        imageUrl: this.imageURL
       }
       const baseURL =  "http://localhost:8080/";
       await axios({
