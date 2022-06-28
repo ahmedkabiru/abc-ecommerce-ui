@@ -11,6 +11,10 @@ import showDetailsView from "@/views/Product/ShowDetailsView";
 import SignUp from "@/views/SignUp";
 import SignIn from "@/views/SignIn";
 import WishList from "@/views/Product/WishList";
+import CartView from "@/views/Cart/CartView";
+import PaymentSuccess from "@/views/Payment/PaymentSuccess";
+import FailedPayment from "@/views/Payment/FailedPayment";
+import CheckoutView from "@/views/Payment/CheckoutView";
 const routes = [
   {
     path: '/',
@@ -65,7 +69,28 @@ const routes = [
       path: '/wishlist',
       name: 'WishList',
       component: WishList
+  },
+  {
+    path: '/Cart',
+    name: 'Cart',
+    component: CartView
+  },
+  {
+    path: '/Payment/success',
+    name: 'PaymentSuccess',
+    component: PaymentSuccess
+  },
+  {
+    path: '/Payment/failed',
+    name: 'FailedPayment',
+    component: FailedPayment
+  },
+  {
+    path: '/checkout',
+    name: 'Checkout',
+    component: CheckoutView
   }
+
 ]
 
 const router = createRouter({

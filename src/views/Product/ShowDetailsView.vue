@@ -28,6 +28,10 @@
                   @click="addToWishList(this.id)">
             Add to wishlist
           </button>
+          <button id="add-to-cart-button" type="button" class="btn" @click="addToCart(this.id)">
+            Add to Cart
+            <ion-icon name="cart-outline" v-pre></ion-icon>
+          </button>
         </div>
 
         <!-- Dummy placeholder features -->
@@ -87,7 +91,36 @@ export default {
         });
 
       });
-    }},
+    },
+
+    addToCart(productId) {
+      axios({
+        method: 'post',
+        url: this.baseURL + "cart/add",
+        data: {productId: productId, quantity: this.quantity },
+        headers: {
+          'Content-Type': 'application/json',
+          'token': this.token
+        }
+      }).then((response) => {
+        if (response.status == 201) {
+          swal({
+            text: "Product Added to the Cart!",
+            icon: "success"
+          });
+        }
+      }, (error) => {
+        console.log(error)
+        swal({
+          text: "Something wrong with add to Cart",
+          icon: "error",
+          closeOnClickOutside: false,
+        });
+
+      });
+    }
+
+    },
   mounted() {
     this.id= this.$route.params.id;
     this.product= this.products.find(product => product.id == this.id);
@@ -113,4 +146,10 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+#add-to-cart-button{
+  background-color: #febd69;
+}
+
+
 </style>
