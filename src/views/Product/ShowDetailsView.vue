@@ -105,14 +105,14 @@ export default {
       }).then((response) => {
         if (response.status == 201) {
           swal({
-            text: "Product Added to the cart!",
+            text: "Product Added to the Cart!",
             icon: "success"
           });
         }
       }, (error) => {
         console.log(error)
         swal({
-          text: "Something wrong with add to cart",
+          text: "Something wrong with add to Cart",
           icon: "error",
           closeOnClickOutside: false,
         });

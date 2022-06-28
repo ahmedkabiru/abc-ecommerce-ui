@@ -5,7 +5,7 @@
         <h3 class="pt-3">Shopping cart</h3>
       </div>
     </div>
-    <!--    loop over all the cart items and display one by one-->
+    <!--    loop over all the Cart items and display one by one-->
     <div v-for="cartItem in cartItems" :key="cartItem.product.id" class="row mt-2 pt-3 justify-content-around">
       <div class="col-2"></div>
       <!-- display image -->
@@ -33,7 +33,7 @@
     <!-- display total price -->
     <div class="total-cost pt-2 text-right">
       <h5>Total : $ {{totalCost}}</h5>
-      <button :disabled="isDisabled()" type="button" class="btn btn-primary confirm" >Confirm Order</button>
+      <button :disabled="isDisabled()" type="button" class="btn btn-primary confirm"  @click="checkout">Confirm Order</button>
     </div>
   </div>
 </template>
@@ -88,7 +88,11 @@ export default {
               this.listCartItems()
            }
          }).catch(err => console.log(err));
-      }
+      },
+       // go to checkout page
+      checkout(){
+      this.$router.push({ name: 'Checkout'})
+      },
     },
    mounted() {
      this.token = localStorage.getItem('token');
@@ -97,7 +101,6 @@ export default {
 }
 </script>
 
-<style scoped>
 
 <style scoped>
 h4, h5 {
