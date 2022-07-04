@@ -30,7 +30,7 @@ const  axios = require("axios")
 export  default {
   data(){
     return {
-      baseURL : "http://localhost:8080/",
+      baseURL : process.env.VUE_APP_BASE_URL,
       products : null,
       categories : null
     }
