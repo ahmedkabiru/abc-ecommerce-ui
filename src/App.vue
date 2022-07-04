@@ -30,7 +30,7 @@ const  axios = require("axios")
 export  default {
   data(){
     return {
-      baseURL : process.env.BASE_URL,
+      baseURL : process.env.VUE_APP_BASE_URL,
       products : null,
       categories : null
     }
