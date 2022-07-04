@@ -15,14 +15,13 @@
 </template>
 
 <script>
-//const axios = require('axios')
 import axios from "axios";
 
 export default {
   name: "CheckoutView",
   data(){
     return {
-      stripeAPIToken: 'pk_test_51LFfiZBnpvLVsBIahiixFxRQO535NxT2x6pPqYjaMyKEx25ZHvBYD8wjFafteveB1rR47OSE1oJWER6I5lm2NLNI00Bt9LUKc4',
+      stripeAPIToken: process.env.VUE_APP_KEY,
       stripe: '',
       token:null,
       sessionId:null,
