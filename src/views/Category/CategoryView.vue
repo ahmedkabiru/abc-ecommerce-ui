@@ -26,10 +26,10 @@ export default {
   components: {CategoryBox},
   data(){
     return {
-      baseURL : "http://localhost:8080/",
       categories : null,
     }
   },
+  props:["baseURL"],
   methods: {
     async getCategories() {
       //fetch categories
